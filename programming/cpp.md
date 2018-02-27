@@ -1,1 +1,0 @@
-[CPPReference](cppreference.com)
