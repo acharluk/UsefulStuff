@@ -3,15 +3,15 @@
 ## Ethernet
 ### Check example configurations
 Netctl provides some example configurations located in `/etc/netctl/examples/`
-![ls /etc/netctl/examples/](/images/linux/guides/setup_networking_1.png)
+![ls /etc/netctl/examples/](/images/linux/guides/arch/setup_networking_1.png)
 
 ### To setup a simple ethernet connection follow this steps:
 
 1. Copy the example profile at `/etc/netctl/examples/ethernet-dhcp` to `/etc/netctl`
-2. Check what your interface is using `ip link show`, in my case is `ens33` as shown in this image: ![ip link show](/images/linux/guides/setup_networking_2.png)
-3. Edit the `Interface` line to match your ethernet interface: ![Editing the Interface](/images/linux/guides/setup_networking_3.png)
+2. Check what your interface is using `ip link show`, in my case is `ens33` as shown in this image: ![ip link show](/images/linux/guides/arch/setup_networking_2.png)
+3. Edit the `Interface` line to match your ethernet interface: ![Editing the Interface](/images/linux/guides/arch/setup_networking_3.png)
 4. Execute the following command: `sudo netctl enable ethernet-dhcp`. You may have to change `ethernet-dhcp` to the name of your profile
-5. Reboot and check if the connection works! ![](/images/linux/guides/setup_networking_4.png)
+5. Reboot and check if the connection works! ![](/images/linux/guides/arch/setup_networking_4.png)
 
 ---
 
