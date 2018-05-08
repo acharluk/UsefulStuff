@@ -21,6 +21,7 @@
 
 ## Installing GCC and Make
 4. Open Ubuntu bash from the Windows start menu
+    - First you need to update by running this command: `sudo apt update && sudo apt upgrade`, it will take some time to finish this
     - Enter the following command in the terminal: `sudo apt install g++ make`
     - Enter your password if needed, then press `y` and `enter` to begin installing g++ and make
     - You should have a windows like this: ![GGC Make install](/images/windows/setup_wsl_4.png)
