@@ -1,6 +1,6 @@
 # Getting started
 
-After setting up VSC for c++ development, we just need to create a new project! This is done in a few steps:
+After setting up VSC for C++ development, we just need to create a new project! This is done in a few steps:
 
 
 ## Creating a folder for the project
