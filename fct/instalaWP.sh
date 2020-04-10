@@ -46,4 +46,4 @@ echo "Preparando la maquina virtual"
 __mysql
 __apache2
 __wordpress
-echo "La maquina ya esta lista! Ya puedes acceder a WordPress utilizando la IP publica"
+echo -e "\033[0;32mLa maquina ya esta lista! Ya puedes acceder a WordPress utilizando la IP publica\033[0m"
