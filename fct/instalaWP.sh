@@ -19,12 +19,6 @@ function __apache2 {
     yum install httpd24 php72 php72-gd php72-pear php72-mysqlnd -y
     echo "Configurando Apache2"
     sed -i '151s/None/All/' /etc/httpd/conf/httpd.conf
-    chown -R apache:apache /var/www
-    chmod 2775 /var/www
-    find /var/www -type d -exec sudo chmod 2775 {} \;
-    find /var/www -type f -exec sudo chmod 0664 {} \;
-    echo "Reiniciando Apache2"
-    service httpd restart
 }
 
 function __wordpress {
@@ -37,6 +31,13 @@ function __wordpress {
         -e 's/password_here/usuario/'         \
         wordpress/wp-config-sample.php > wordpress/wp-config.php
     cp -r wordpress/* /var/www/html/
+
+    chown -R apache:apache /var/www
+    chmod 2775 /var/www
+    find /var/www -type d -exec sudo chmod 2775 {} \;
+    find /var/www -type f -exec sudo chmod 0664 {} \;
+    echo "Reiniciando Apache2"
+    service httpd restart
 }
 
 echo "Preparando la maquina virtual"
