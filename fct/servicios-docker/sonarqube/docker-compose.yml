@@ -1,0 +1,44 @@
+version: '3.3'
+
+services:
+  postgresql:
+    build:
+      context: ./
+      dockerfile: postgresql.Dockerfile
+    networks: 
+      - acl_sonarqube_network
+    environment:
+      - POSTGRES_PASSWORD=sonar
+    volumes:
+      - acl_postgresql:/var/lib/postgresql
+      - acl_postgresql_data:/var/lib/postgresql/data
+
+  sonarqube:
+    build:
+      context: ./
+      dockerfile: sonarqube.Dockerfile
+    networks: 
+      - acl_sonarqube_network
+    depends_on:
+      - postgresql
+    ports:
+      - '9000:9000'
+    environment:
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
+      - SONARQUBE_JDBC_URL=jdbc:postgresql://postgresql/sonar
+    volumes:
+      - acl_sonarqube_data:/opt/sonarqube/data
+      - acl_sonarqube_logs:/opt/sonarqube/logs
+      - acl_sonarqube_extensions:/opt/sonarqube/extensions
+      
+volumes:
+  acl_postgresql_data:
+  acl_postgresql:
+  acl_sonarqube_data:
+  acl_sonarqube_logs:
+  acl_sonarqube_extensions:
+
+networks: 
+  acl_sonarqube_network:
+    
