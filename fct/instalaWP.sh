@@ -37,6 +37,7 @@ function __wordpress {
     find /var/www -type d -exec sudo chmod 2775 {} \;
     find /var/www -type f -exec sudo chmod 0664 {} \;
     sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 100M/' /etc/php.ini
+    sed -i 's/post_max_size = 8M/post_max_size = 128M/' /etc/php.ini
 
     echo "Reiniciando Apache2"
     service httpd restart
@@ -47,3 +48,4 @@ __mysql
 __apache2
 __wordpress
 echo -e "\033[0;32mLa maquina ya esta lista! Ya puedes acceder a WordPress utilizando la IP publica\033[0m"
+
