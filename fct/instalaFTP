@@ -1,0 +1,19 @@
+#!/bin/bash
+yum install vsftpd -y
+
+sed -i 's/anonymous_enable=YES/anonymous_enable=NO/' /etc/vsftpd/vsftpd.conf
+
+echo 'local_enable=YES' >>  /etc/vsftpd/vsftpd.conf
+echo 'pasv_enable=YES' >> /etc/vsftpd/vsftpd.conf
+echo 'pasv_min_port=15000' >> /etc/vsftpd/vsftpd.conf
+echo 'pasv_max_port=15000' >> /etc/vsftpd/vsftpd.conf
+
+adduser usuario
+passwd usuario
+usuario123
+usuario123
+usermod -d /var/www/html/ usuario
+chmod -R 777 /var/www/
+service vsftpd restart
+
+echo -e "\033[0;32mInstalación de FTP con exito Usuario:usuario,Contraseña:usuario123\033[0m"
